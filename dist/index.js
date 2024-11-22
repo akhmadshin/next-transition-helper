@@ -1,6 +1,8 @@
-import { startTransition as o } from "./start-transition.js";
+import { handleBeforePopState as t } from "./handle-before-pop-state.js";
+import { startTransition as a } from "./start-transition.js";
 import { WithTransitions as n } from "./WithTransitions.js";
 export {
   n as WithTransitions,
-  o as startTransition
+  t as handleBeforePopState,
+  a as startTransition
 };
