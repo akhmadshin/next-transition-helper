@@ -1,12 +1,16 @@
-import singletonRouter, { useRouter } from 'next/router';
 import { PropsWithChildren, useEffect } from 'react';
 import { handleRouteChangeComplete } from './utils/handle-route-change-complete';
 import { handleHashChangeComplete, handleHashChangeStart } from './utils/handle-hash-change';
+import type { SingletonRouter } from 'next/router';
+
+interface Props {
+  singletonRouter: SingletonRouter
+}
 
 type ParentComponent<T = unknown> = React.FC<PropsWithChildren<T>>
 
-export const WithTransitions: ParentComponent = ({ children }) => {
-  const router = useRouter();
+export const WithTransitions: ParentComponent<Props> = ({ children, singletonRouter }) => {
+  const router = singletonRouter?.router;
 
   useEffect(() => {
     if (!router) {

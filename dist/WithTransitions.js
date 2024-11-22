@@ -1,18 +1,17 @@
-import a, { useRouter as s } from "next/router";
-import { useEffect as u } from "react";
-import { handleRouteChangeComplete as o } from "./utils/handle-route-change-complete.js";
-import { handleHashChangeStart as r, handleHashChangeComplete as n } from "./utils/handle-hash-change.js";
-const _ = ({ children: h }) => {
-  const e = s();
-  return u(() => {
+import { useEffect as C } from "react";
+import { handleRouteChangeComplete as r } from "./utils/handle-route-change-complete.js";
+import { handleHashChangeStart as h, handleHashChangeComplete as a } from "./utils/handle-hash-change.js";
+const m = ({ children: n, singletonRouter: t }) => {
+  const e = t == null ? void 0 : t.router;
+  return C(() => {
     if (!e)
       return;
-    let t = a.router._key;
-    return window.__NTH_routerKeyByHashRouteKey && window.__NTH_routerKey && (t = window.__NTH_routerKeyByHashRouteKey[t] ?? t), window.__NTH_routerKey = t, e.events.on("routeChangeComplete", o), e.events.on("hashChangeStart", r), e.events.on("hashChangeComplete", n), () => {
-      e.events.off("routeChangeComplete", o), e.events.off("hashChangeStart", r), e.events.off("hashChangeComplete", n);
+    let o = t.router._key;
+    return window.__NTH_routerKeyByHashRouteKey && window.__NTH_routerKey && (o = window.__NTH_routerKeyByHashRouteKey[o] ?? o), window.__NTH_routerKey = o, e.events.on("routeChangeComplete", r), e.events.on("hashChangeStart", h), e.events.on("hashChangeComplete", a), () => {
+      e.events.off("routeChangeComplete", r), e.events.off("hashChangeStart", h), e.events.off("hashChangeComplete", a);
     };
-  }, []), h;
+  }, []), n;
 };
 export {
-  _ as WithTransitions
+  m as WithTransitions
 };
