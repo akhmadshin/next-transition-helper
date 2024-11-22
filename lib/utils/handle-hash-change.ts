@@ -1,6 +1,6 @@
-import singletonRouter from 'next/router';
+import type { SingletonRouter } from 'next/router';
 
-export const handleHashChangeStart = () => {
+export const getHandleHashChangeStart = (singletonRouter: SingletonRouter) => () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   let routerKey = singletonRouter.router!._key;
