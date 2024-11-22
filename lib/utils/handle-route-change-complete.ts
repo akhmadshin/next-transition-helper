@@ -1,8 +1,8 @@
-import singletonRouter from 'next/router';
 import { isTransitionAvailable } from './is-transition-available';
 import { getElementSelector } from './get-element-selector';
+import type { SingletonRouter } from 'next/router';
 
-export const handleRouteChangeComplete = () => {
+export const getHandleRouteChangeComplete = (singletonRouter: SingletonRouter) => () => {
   if (typeof window === 'undefined') {
     return;
   }
