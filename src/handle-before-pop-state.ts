@@ -1,4 +1,4 @@
-import { handleHistoryTransitionStarted } from './utils/handle-history-change-started.ts';
+import { handleHistoryTransitionStarted } from './utils/handle-history-change-started';
 import { NextRouter } from 'next/router';
 
 interface TransitionOptions {
