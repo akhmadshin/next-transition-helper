@@ -1,4 +1,4 @@
-import { handleHistoryTransitionStarted } from './handle-history-change-started';
+import { handleHistoryTransitionStarted } from './utils/handle-history-change-started.ts';
 import { NextRouter } from 'next/router';
 
 interface TransitionOptions {
@@ -12,8 +12,6 @@ export interface NextHistoryState {
   as: string;
   options: TransitionOptions;
 }
-
-
 
 export const handleBeforePopState = (props: NextHistoryState, router: NextRouter) => {
   const key = (props as unknown as { key: string }).key;
